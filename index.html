@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>DaxitaOS | Happy Birthday Adamya</title>
+  <link rel="stylesheet" href="style.css">
+  <link href="https://fonts.googleapis.com/css2?family=VT323&display=swap" rel="stylesheet">
+</head>
+<body>
+  <!-- Retro Boot Screen -->
+  <div id="boot-screen">
+    <div class="boot-content">
+      <div class="boot-header">
+        <h1 class="boot-title">DAXITA OS</h1>
+        <p class="boot-subtitle">Girlfriend Edition v1.0</p>
+      </div>
+      
+      <div id="boot-messages" class="boot-messages">
+        <!-- Messages will be injected by JS -->
+      </div>
+
+      <div class="boot-loading-container">
+        <div class="boot-loader-track">
+          <div id="boot-progress-fill" class="boot-loader-fill"></div>
+        </div>
+        <div id="boot-status" class="boot-status-text">SYSTEM INITIALIZING...</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Background Decorative Elements -->
+  <div class="desktop-bg sky-gradient dithered">
+    
+    <div class="pixel-stars">
+      <div class="pixel-star s1"></div>
+      <div class="pixel-star s2"></div>
+      <div class="pixel-star s3"></div>
+      <div class="pixel-star s4"></div>
+      <div class="pixel-star s5"></div>
+      <div class="pixel-star s6"></div>
+      <div class="pixel-star s7" style="top: 20%; left: 35%; animation-delay: 1.2s;"></div>
+      <div class="pixel-star s8" style="top: 35%; left: 70%; animation-delay: 2.1s;"></div>
+    </div>
+    
+    <div class="pixel-moon"></div>
+    
+    <div class="mountain-back"></div>
+    <div class="mountain-front"></div>
+    
+    <div class="pixel-clouds">
+      <div class="pixel-cloud p-cloud1"></div>
+      <div class="pixel-cloud p-cloud2"></div>
+      <div class="pixel-cloud p-cloud3"></div>
+      <div class="pixel-cloud p-cloud4"></div>
+    </div>
+
+    <!-- Retro pixel grid overlay -->
+    <div class="pixel-grid"></div>
+  </div>
+
+  <!-- Left Side: Desktop Icons -->
+  <div class="desktop-icons">
+    <div class="desktop-icon" data-action="open-memories">
+      <div class="icon-img">📸</div>
+      <div class="icon-label">MY LIFE'S MEMORIES</div>
+    </div>
+    <div class="desktop-icon" data-action="open-belong">
+      <div class="icon-img">🏡</div>
+      <div class="icon-label">Where I Belong</div>
+    </div>
+    <div class="desktop-icon" data-action="open-age">
+      <div class="icon-img">🎂</div>
+      <div class="icon-label">CHECK MY AGE</div>
+    </div>
+    <div class="desktop-icon" data-action="open-explorer">
+      <div class="icon-img">🗂️</div>
+      <div class="icon-label">GFLAND EXPLORER</div>
+    </div>
+  </div>
+
+  <!-- Hidden Confetti Container for Features -->
+  <div id="confetti-container"></div>
+  
+  <!-- Right Side Floating Initial Windows (Spawned via JS, but hardcoded here for layout) -->
+  <div id="window-container">
+    
+    <!-- Window 1: Important -->
+    <div class="os-window" id="win-important" style="top: 10%; right: 5%; width: 300px; z-index: 10;">
+      <div class="title-bar">
+        <span class="title-text">IMPORTANT!!!!!</span>
+        <div class="title-buttons">
+          <button class="btn-min">_</button>
+          <button class="btn-max">□</button>
+          <button class="btn-close">X</button>
+        </div>
+      </div>
+      <div class="window-content">
+        <div class="popup-tabs">
+          <button class="tab-btn active" data-tab="key-dates">Key Dates</button>
+          <button class="tab-btn" data-tab="time-table">Time Table</button>
+        </div>
+        
+        <div class="tab-content-wrap">
+          <!-- Key Dates Tab -->
+          <div id="key-dates" class="tab-content">
+            <div class="timeline-container">
+              <div class="timeline-line"></div>
+              
+              <div class="timeline-card" id="card-oct-12">
+                <div class="timeline-icon-wrap">💖</div>
+                <div class="timeline-info">
+                  <span class="timeline-date">12th October</span>
+                  <p class="timeline-caption">"The day our story officially began — when 'you and me' quietly became 'us'."</p>
+                </div>
+              </div>
+
+              <div class="timeline-card clickable-date" id="card-july-20" style="cursor:pointer;">
+                <div class="timeline-icon-wrap">🎂</div>
+                <div class="timeline-info">
+                  <span class="timeline-date">20th July</span>
+                  <p class="timeline-caption">"Critical system reminder: never forget your girlfriend’s birthday."</p>
+                  <span class="click-hint">(Click for warning! ⚠️)</span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Time Table Tab -->
+          <div id="time-table" class="tab-content hidden-tab">
+            <div class="routine-board">
+              <div class="routine-row">
+                <div class="routine-time">☀️</div>
+                <div class="routine-text">Morning: Thinking about each other.</div>
+              </div>
+              <div class="routine-row">
+                <div class="routine-time">💬</div>
+                <div class="routine-text">Afternoon: Sending random memes.</div>
+              </div>
+              <div class="routine-row">
+                <div class="routine-time">🍜</div>
+                <div class="routine-text">Evening: Planning food dates.</div>
+              </div>
+              <div class="routine-row">
+                <div class="routine-time">🌙</div>
+                <div class="routine-text">Night: Late night conversations.</div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="sync-footer">
+          SYSTEM NOTE: Adamya and Daxita timeline synced <span class="blink-heart">❤️</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Window 2: Music Player -->
+    <div class="os-window" id="win-music" style="top: 40%; right: 15%; width: 280px; z-index: 11;">
+      <!-- Floating Clouds -->
+      <div class="window-cloud w-cloud-1"></div>
+      <div class="window-cloud w-cloud-2"></div>
+      <div class="window-cloud w-cloud-3"></div>
+      <div class="window-cloud w-cloud-4"></div>
+
+      <div class="title-bar">
+        <span class="title-text">mood.mp3</span>
+        <div class="title-buttons">
+          <button class="btn-min">_</button>
+          <button class="btn-close">X</button>
+        </div>
+      </div>
+      <div class="window-content center-content">
+        <div class="music-icon">🎵</div>
+        
+        <audio id="mood-audio" src="mood.mp3"></audio>
+
+        <div class="music-controls">
+          <button id="btn-play-mood" class="action-btn small-btn">▶ Play</button>
+          <button id="btn-pause-mood" class="action-btn small-btn">⏸ Pause</button>
+        </div>
+        <div class="progress-bar" id="mood-progress-bar">
+          <div class="progress-fill" id="mood-progress-fill"></div>
+        </div>
+
+        <!-- Profile Easter Egg -->
+        <div class="profile-card" id="mood-easter-egg">
+          <div class="profile-header">
+            DAXITA<br>
+            Girlfriend v1.0<br>
+            Certified Adamya Support System
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Window 3: Vibe -->
+    <div class="os-window" id="win-vibe" style="top: 60%; right: 5%; width: 250px; z-index: 12;">
+      <!-- Floating Clouds -->
+      <div class="window-cloud w-cloud-1"></div>
+      <div class="window-cloud w-cloud-2"></div>
+      <div class="window-cloud w-cloud-3"></div>
+      <div class="window-cloud w-cloud-4"></div>
+
+      <div class="title-bar">
+        <span class="title-text">vibe.png</span>
+        <div class="title-buttons">
+          <button class="btn-min">_</button>
+          <button class="btn-max">□</button>
+          <button class="btn-close">X</button>
+        </div>
+      </div>
+      <div class="window-content center-content" style="padding: 10px;">
+        <img src="vibe.png" class="vibe-picture" alt="Vibe Picture" loading="lazy">
+        <p class="pixel-text mt-2">daxita</p>
+      </div>
+    </div>
+
+  </div> <!-- End Window Container -->
+
+  <!-- The "Exit System" Button -->
+  <button id="btn-shutdown" class="action-btn shutdown-btn">Start</button>
+
+  <!-- Shutdown Screen Overlay -->
+  <div id="shutdown-screen" class="hidden">
+    <div class="shutdown-content">
+      <h1 class="blink">Shutting down...</h1>
+      <p>Thank you for using<br><strong>DaxitaOS</strong></p>
+      <p class="sub-text">Best Girlfriend Edition</p>
+      <div class="final-msg">
+        I love you Adamya ❤️<br>Happy Birthday
+      </div>
+    </div>
+  </div>
+
+  <!-- Floating Photo Modal -->
+  <div id="photo-modal" class="photo-modal-overlay">
+    <div class="photo-modal-content os-window">
+      <div class="title-bar">
+        <span class="title-text">Memory Viewer</span>
+        <div class="title-buttons">
+          <button class="btn-close" id="btn-close-modal">X</button>
+        </div>
+      </div>
+      <div class="window-content center-content">
+        <img id="modal-photo" src="" alt="Memory" class="modal-image">
+        <p id="modal-caption" class="modal-caption-text"></p>
+        <p id="modal-date" class="modal-date-text"></p>
+        <p class="modal-footer-text">❤️ Saved in my heart forever.</p>
+      </div>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
